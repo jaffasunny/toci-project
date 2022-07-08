@@ -9,6 +9,7 @@ const errorHandler = (req, res, next) => {
   res.status(statusCode);
   res.json({
     message: err.message,
+    status: statusCode,
     stack: process.env.NODE_ENV === "production" ? null : err.stack,
   });
 };
