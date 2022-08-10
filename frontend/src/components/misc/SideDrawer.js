@@ -41,7 +41,7 @@ const SideDrawer = () => {
   const { user, selectedChat, setSelectedChat, chats, setChats } = ChatState();
 
   const navigate = useNavigate();
-  
+
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
     navigate("/");
