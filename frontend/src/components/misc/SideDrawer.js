@@ -19,6 +19,7 @@ import {
   Input,
   DrawerFooter,
   useToast,
+  Spinner,
 } from "@chakra-ui/react";
 
 import { ChatState } from "../../Context/ChatProvider";
@@ -40,6 +41,7 @@ const SideDrawer = () => {
   const { user, selectedChat, setSelectedChat, chats, setChats } = ChatState();
 
   const navigate = useNavigate();
+  
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
     navigate("/");
@@ -97,6 +99,8 @@ const SideDrawer = () => {
       };
 
       const { data } = await axios.post("/api/chat", { userId }, config);
+
+      if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
 
       setSelectedChat(data);
       setLoadingChat(false);
@@ -195,6 +199,7 @@ const SideDrawer = () => {
                 );
               })
             )}
+            {loadingChat && <Spinner ml='auto' display='flex' />}
           </DrawerBody>
 
           <DrawerFooter>
