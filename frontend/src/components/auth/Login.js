@@ -100,7 +100,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <InputRightElement width={"4.5rem"}>
-            <Button h={"1.75rem"} size='sm' onClick={handleClick}>
+            <Button height={"1.75rem"} size='sm' onClick={handleClick}>
               {show ? "Hide" : "Show"}
             </Button>
           </InputRightElement>

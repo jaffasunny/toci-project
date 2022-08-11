@@ -26,8 +26,8 @@ const Homepage = () => {
   return (
     <Container maxWidth='xl' centerContent>
       <Box
-        w='100%'
-        d='flex'
+        width='100%'
+        display='flex'
         justifyContent='center'
         bg='white'
         p={3}
@@ -40,7 +40,7 @@ const Homepage = () => {
       </Box>
       <Box
         bg='white'
-        w='100%'
+        width='100%'
         p={4}
         borderRadius='lg'
         borderWidth='1px'

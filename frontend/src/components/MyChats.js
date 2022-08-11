@@ -7,7 +7,7 @@ import ChatLoading from "./ChatLoading";
 import { getSender } from "../config/ChatLogics";
 import GroupChatModal from "./misc/GroupChatModal";
 
-const MyChats = () => {
+const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();
   const { user, selectedChat, setSelectedChat, chats, setChats } = ChatState();
 
@@ -37,7 +37,7 @@ const MyChats = () => {
     };
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     fetchChats();
-  }, [setChats, toast, user.token]);
+  }, [setChats, toast, user.token, fetchAgain]);
 
   return (
     <Box
@@ -46,7 +46,7 @@ const MyChats = () => {
       alignItems='center'
       p={3}
       bg='white'
-      w={{ base: "100%", md: "31%" }}
+      width={{ base: "100%", md: "31%" }}
       borderRadius='lg'
       borderWidth='1px'>
       <Box
@@ -55,7 +55,7 @@ const MyChats = () => {
         fontSize={{ base: "28px", md: "30px" }}
         fontFamily='Work sans'
         display='flex'
-        w='100%'
+        width='100%'
         justifyContent='space-between'
         alignItems='center'>
         My Chats
@@ -74,8 +74,8 @@ const MyChats = () => {
         flexDir='column'
         p={3}
         bg='#F8F8F8'
-        w='100%'
-        h='100%'
+        width='100%'
+        height='100%'
         borderRadius='lg'
         overflowY='hidden'>
         {chats ? (
